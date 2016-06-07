@@ -4,6 +4,8 @@ import os.path
 import pkgutil
 import sys
 
+from preflyt.utils import pformat_check
+
 __author__ = "Aru Sahni"
 __version__ = "0.1.0"
 __licence__ = "MIT"
@@ -17,10 +19,11 @@ def load_checkers():
     for loader, name, _ in pkgutil.iter_modules([os.path.join(__path__[0], 'checkers')]):
         loader.find_module(name).load_module(name)
 
-def check(operations):
+def check(operations, loud=False):
     """Check all the things
 
     :param operations: The operations to check
+    :param loud: `True` if checkers should prettyprint their status to stderr. `False` otherwise.
     :returns: A tuple of overall success, and a detailed execution log for all the operations
 
     """
@@ -28,6 +31,9 @@ def check(operations):
         load_checkers()
     roll_call = []
     everything_ok = True
+    if loud and operations:
+        title = "Preflyt Checklist"
+        sys.stderr.write("{}\n{}\n".format(title, "=" * len(title)))
     for operation in operations:
         if operation.get('checker') not in CHECKERS:
             raise CheckerNotFoundError(operation)
@@ -38,6 +44,8 @@ def check(operations):
         if not success:
             everything_ok = False
         roll_call.append({"checker": operation, "success": success, "message": message})
+        if loud:
+            sys.stderr.write(" {}\n".format(pformat_check(success, operation, message)))
     return everything_ok, roll_call
 
 class CheckerNotFoundError(Exception):
