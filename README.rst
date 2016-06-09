@@ -77,7 +77,7 @@ You know what sucks? Kicking off a long running data ingestion/processing task o
 
 * **"I'm going to programatically check things on script start... with Preflyt!"**
 
-  Bingo. That ugly series of code up top?
+  Bingo. That ugly series of code above?
 
   .. code-block:: python
 
