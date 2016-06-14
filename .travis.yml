@@ -7,7 +7,7 @@ install:
   - "pip install coveralls"
   - "pip install -e .[test]"
 script:
-  - nosetests --with-coverage --cover-package=multilog
+  - nosetests --with-coverage --cover-package=preflyt
 after_success:
   - coveralls
 sudo: false
