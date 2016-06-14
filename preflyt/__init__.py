@@ -43,7 +43,7 @@ def check(operations, loud=False):
         success, message = checker.check()
         if not success:
             everything_ok = False
-        roll_call.append({"checker": operation, "success": success, "message": message})
+        roll_call.append({"check": operation, "success": success, "message": message})
         if loud:
             sys.stderr.write(" {}\n".format(pformat_check(success, operation, message)))
     return everything_ok, roll_call

@@ -1,6 +1,7 @@
 """Set up the package."""
 
 import os
+import re
 import sys
 from codecs import open as codecs_open
 from setuptools import setup, find_packages
@@ -13,8 +14,11 @@ if sys.version_info < (3, 0):
 with codecs_open('README.rst', encoding='utf-8') as f:
     LONG_DESCRIPTION = f.read()
 
+with open("preflyt/__init__.py", "r") as f:
+    version = re.search(r"^__version__\s*=\s*[\"']([^\"']*)[\"']", f.read(), re.MULTILINE).group(1)
+
 setup(name='Preflyt',
-      version='0.0.1',
+      version=version,
       description="A simple system state test utility",
       long_description=LONG_DESCRIPTION,
       classifiers=[

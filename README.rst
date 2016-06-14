@@ -2,6 +2,8 @@
 
 *A lightweight application environment checker.*
 
+*Python 3 only. The future is now.*
+
 Getting started
 --------------------
 
