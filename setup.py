@@ -17,7 +17,7 @@ with codecs_open('README.rst', encoding='utf-8') as f:
 with open("preflyt/__init__.py", "r") as f:
     version = re.search(r"^__version__\s*=\s*[\"']([^\"']*)[\"']", f.read(), re.MULTILINE).group(1)
 
-setup(name='Preflyt',
+setup(name='preflyt',
       version=version,
       description="A simple system state test utility",
       long_description=LONG_DESCRIPTION,
@@ -35,6 +35,7 @@ setup(name='Preflyt',
       author_email="aru@thehumangeo.com",
       url='https://github.com/humangeo/preflyt',
       license='MIT',
+      package_data={'': ['LICENSE']},
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=True,
