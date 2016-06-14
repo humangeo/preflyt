@@ -26,7 +26,7 @@ To use Preflyt, install it :code:`pip install preflyt`, and then invoke it:
         run()
     else:
         print("Preflyt checks failed!")
-        for result in result:
+        for result in results:
             if not result["success"]:
                 print("{checker[checker]}: {message}".format(**result))
 
