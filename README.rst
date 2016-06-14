@@ -106,7 +106,7 @@ Contributing
 
 Additional checkers are more than welcome! The goal is to keep this package free of dependencies, so cleverness is appreciated :-)
 
-Please write tests for whatever checkers you wish to submit. Preflyt uses nose. Development packages can be installed via :code:`pip install -e .[test]`, and tests can be run via `nosetests .`.
+Please write tests for whatever checkers you wish to submit. Preflyt uses nose. Development packages can be installed via :code:`pip install -e .[test]`, and tests can be run via :code:`nosetests .`.
 
 License
 --------
