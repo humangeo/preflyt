@@ -4,6 +4,12 @@
 
 *Python 3 only. The future is now.*
 
+.. image:: https://travis-ci.org/humangeo/preflyt.svg
+   :target: https://travis-ci.org/humangeo/preflyt
+
+.. image:: https://coveralls.io/repos/github/humangeo/preflyt/badge.svg?branch=master
+   :target: https://coveralls.io/github/humangeo/preflyt?branch=master
+
 Getting started
 --------------------
 
