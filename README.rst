@@ -43,7 +43,7 @@ Checkers
 Out of the box, the following checkers are available.
 
 | Name | Description | Args |
-|------|-------------|------|
+| ------ | ------------- | ------ |
 | env | Check environment state | <ul><li><strong>name</strong>: Variable name</li><li><strong>value</strong>: (optional) Variable value</li></ul> |
 | dir | Check directory state | <ul><li><strong>path</strong>: Directory path</li><li><strong>present</strong>: (optional, default=True) False if the directory should be absent.</li></ul> |
 | file | Check file state | <ul><li><strong>path</strong>: File path</li><li><strong>present</strong>: (optional, default=True) False if the file should be absent.</li></ul> |
