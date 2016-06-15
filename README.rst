@@ -37,6 +37,21 @@ To use Preflyt, install it :code:`pip install preflyt`, and then invoke it:
                 print("{checker[checker]}: {message}".format(**result))
 
 
+Checkers
+---------
+
+Out of the box, the following checkers are available.
+
+| Name | Description | Args |
+|------|-------------|------|
+| env | Check environment state | <ul><li><strong>name</strong>: Variable name</li><li><strong>value</strong>: (optional) Variable value</li></ul> |
+| dir | Check directory state | <ul><li><strong>path</strong>: Directory path</li><li><strong>present</strong>: (optional, default=True) False if the directory should be absent.</li></ul> |
+| file | Check file state | <ul><li><strong>path</strong>: File path</li><li><strong>present</strong>: (optional, default=True) False if the file should be absent.</li></ul> |
+| psql | Check PostgreSQL state | <ul><li><strong>host</strong>: (optional, default=localhost) Postgres hostname</li><li><strong>port</strong>: (optional, default=5432) Postgres server port</li><li><strong>dbname</strong>: (optional, default=None) The database name for which to test</li></ul> |
+| web | Check web service state | <ul><li><strong>url</strong>: The webservice URL</li><li><strong>statuses</strong>: (optional, default=None) A collection of acceptable status codes (aside from 200).</li></ul> |
+
+Future versions of Preflyt will add additional default checkers while allowing third parties to ship their own.
+
 Philosophy
 -------------------------
 
