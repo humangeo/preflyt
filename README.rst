@@ -42,13 +42,25 @@ Checkers
 
 Out of the box, the following checkers are available.
 
-| Name | Description | Args |
-|------|-------------|------|
-| env | Check environment state | <ul><li><strong>name</strong>: Variable name</li><li><strong>value</strong>: (optional) Variable value</li></ul> |
-| dir | Check directory state | <ul><li><strong>path</strong>: Directory path</li><li><strong>present</strong>: (optional, default=True) False if the directory should be absent.</li></ul> |
-| file | Check file state | <ul><li><strong>path</strong>: File path</li><li><strong>present</strong>: (optional, default=True) False if the file should be absent.</li></ul> |
-| psql | Check PostgreSQL state | <ul><li><strong>host</strong>: (optional, default=localhost) Postgres hostname</li><li><strong>port</strong>: (optional, default=5432) Postgres server port</li><li><strong>dbname</strong>: (optional, default=None) The database name for which to test</li></ul> |
-| web | Check web service state | <ul><li><strong>url</strong>: The webservice URL</li><li><strong>statuses</strong>: (optional, default=None) A collection of acceptable status codes (aside from 200).</li></ul> |
++------+-------------------------+----------------------------------------------------------------------------------------------------+
+| Name | Description             | Args                                                                                               |
++======+=========================+====================================================================================================+
+| env  | Check environment state | - **name**: Variable name                                                                          |
+|      |                         | - **value**: (optional) Variable value                                                             |
++------+-------------------------+----------------------------------------------------------------------------------------------------+
+| dir  | Check directory state   | - **path**: Directory path                                                                         |
+|      |                         | - **present**: (optional, default=True) False if the directory should be absent.                   |
++------+-------------------------+----------------------------------------------------------------------------------------------------+
+| file | Check file state        | - **path**: File path                                                                              |
+|      |                         | - **present**: (optional, default=True) False if the file should be absent.                        |
++------+-------------------------+----------------------------------------------------------------------------------------------------+
+| psql | Check PostgreSQL state  | - **host**: (optional, default=localhost) Postgres hostname                                        |
+|      |                         | - **port**: (optional, default=5432) Postgres server port                                          |
+|      |                         | - **dbname**: (optional, default=None) The database name for which to test                         |
++------+-------------------------+----------------------------------------------------------------------------------------------------+
+| web  | Check web service state | - **url**: The webservice URL                                                                      |
+|      |                         | - **statuses**: (optional, default=None) A collection of acceptable status codes (aside from 200). |
++------+-------------------------+----------------------------------------------------------------------------------------------------+
 
 Future versions of Preflyt will add additional default checkers while allowing third parties to ship their own.
 
