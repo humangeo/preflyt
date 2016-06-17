@@ -117,22 +117,22 @@ You know what sucks? Kicking off a long running data ingestion/processing task o
   .. code-block:: python
 
     # settings.py
-    checks = [
+    CHECKS = [
         {"checker": "web", "url": ES_HOST},
         {"checker": "psql", "host": POSTGRES_HOST, "port": POSTGRES_PORT},
         {"checker": "file", "path": DATA_FILE},
     ]
-    if envname == "production":
-        checks.append({"checker": "dir", "path": DATA_DIR})
+    if ENVNAME == "production":
+        CHECKS.append({"checker": "dir", "path": DATA_DIR})
 
     # run.py
     import preflyt
-    ok, results = preflyt.check(settings.checks)
+    ok, results = preflyt.check(settings.CHECKS)
     if not ok:
         print([result in results if not result["success"]])
         sys.exit(1)
 
-  Now all the checks your performing are defined in configuration, and no boilerplate!
+  Now all the checks you're performing are defined in configuration, and no boilerplate!
 
 Contributing
 --------------
