@@ -10,4 +10,4 @@ def pformat_check(success, checker, message):
 
     """
     # TODO: Make this prettier.
-    return "[{}] {}: {}".format("v" if success else " ", checker["checker"], message)
+    return "[{}] {}: {}".format("✓" if success else "✗", checker["checker"], message)
