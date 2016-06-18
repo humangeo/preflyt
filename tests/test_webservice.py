@@ -52,3 +52,12 @@ def test_check_unhandled(urlopen):
     result, message = web.check()
     ok_(not result)
     ok_("Unhandled error: " in message)
+
+@patch("urllib.request.urlopen")
+def test_check_statuses(urlopen):
+    web = WebServiceChecker(EXAMPLE_URL, statuses=[420])
+    urlopen.side_effect = urllib.error.HTTPError(EXAMPLE_URL, 420, "HTTP ERROR HAPPENED", None, None)
+    result, message = web.check()
+    ok_(result)
+    ok_("is available" in message)
+    ok_("[420]" in message)
