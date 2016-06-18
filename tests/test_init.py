@@ -2,7 +2,7 @@
 import os
 from unittest.mock import call, Mock, patch
 
-from nose.tools import ok_, eq_
+from nose.tools import ok_, eq_, raises
 
 import preflyt
 
@@ -40,6 +40,17 @@ def test_everything_failure():
     for field_name in ('check', 'success', 'message'):
         ok_(field_name in results[0])
 
+@patch("preflyt.load_checkers")
+def test_load_called(load_checkers):
+    """Verify the load method is called"""
+    checkers = preflyt.CHECKERS
+    preflyt.CHECKERS = {}
+    try:
+        preflyt.check([])
+        load_checkers.assert_called_once_with()
+    finally:
+        preflyt.CHECKERS = checkers
+
 @patch("sys.stderr.write")
 @patch("preflyt.pformat_check")
 def test_everything_loud(pformat, stderr):
@@ -50,3 +61,7 @@ def test_everything_loud(pformat, stderr):
         call("Preflyt Checklist\n=================\n"),
         call(" item\n")
     ])
+
+@raises(preflyt.CheckerNotFoundError)
+def test_missing_checker():
+    preflyt.check([{"checker": "noop"}])
