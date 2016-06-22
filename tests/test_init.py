@@ -7,11 +7,11 @@ from nose.tools import ok_, eq_, raises
 import preflyt
 
 CHECKERS = [
-    {"checker": "env", "name": "USER"}
+    {"checker": "env", "name": "PATH"}
 ]
 
 BAD_CHECKERS = [
-    {"checker": "env", "name": "USER1231342dhkfgjhk2394dv09324jk12039csdfg01231"}
+    {"checker": "env", "name": "PATH1231342dhkfgjhk2394dv09324jk12039csdfg01231"}
 ]
 
 @patch("pkgutil.iter_modules")
