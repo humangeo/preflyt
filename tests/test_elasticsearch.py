@@ -31,6 +31,9 @@ RESPONSE_TEMPLATE = """
 }}
 """
 
+def get_response(color):
+    return RESPONSE_TEMPLATE.format(color=color).encode('utf-8')
+
 def test_init():
     esc = ElasticsearchChecker(EXAMPLE_URL)
     eq_(ElasticsearchChecker.checker_name, "es")
@@ -52,7 +55,7 @@ def test_init_prefixless():
 def test_check_healthy(urlopen):
     esc = ElasticsearchChecker(EXAMPLE_URL)
     response_mock = MagicMock()
-    response_mock.read.return_value = RESPONSE_TEMPLATE.format(color="green")
+    response_mock.read.return_value = get_response("green")
     response_mock.__enter__.return_value = response_mock
     urlopen.return_value = response_mock
     result, message = esc.check()
@@ -64,7 +67,7 @@ def test_check_healthy(urlopen):
 def test_check_unhealthy(urlopen):
     esc = ElasticsearchChecker(EXAMPLE_URL)
     response_mock = MagicMock()
-    response_mock.read.return_value = RESPONSE_TEMPLATE.format(color="yellow")
+    response_mock.read.return_value = get_response("yellow")
     response_mock.__enter__.return_value = response_mock
     urlopen.return_value = response_mock
     result, message = esc.check()
@@ -76,7 +79,7 @@ def test_check_unhealthy(urlopen):
 def test_check_additional_color(urlopen):
     esc = ElasticsearchChecker(EXAMPLE_URL, colors=["yellow"])
     response_mock = MagicMock()
-    response_mock.read.return_value = RESPONSE_TEMPLATE.format(color="yellow")
+    response_mock.read.return_value = get_response("yellow")
     response_mock.__enter__.return_value = response_mock
     urlopen.return_value = response_mock
     result, message = esc.check()
@@ -88,7 +91,7 @@ def test_check_additional_color(urlopen):
 def test_check_additional_color_base(urlopen):
     esc = ElasticsearchChecker(EXAMPLE_URL, colors=["yellow"])
     response_mock = MagicMock()
-    response_mock.read.return_value = RESPONSE_TEMPLATE.format(color="green")
+    response_mock.read.return_value = get_response("green")
     response_mock.__enter__.return_value = response_mock
     urlopen.return_value = response_mock
     result, message = esc.check()

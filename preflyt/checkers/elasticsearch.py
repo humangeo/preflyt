@@ -29,7 +29,7 @@ class ElasticsearchChecker(BaseChecker):
         try:
             with request.urlopen(self._url) as response:
                 body = response.read()
-                response = json.loads(body)
+                response = json.loads(body.decode('utf-8'))
                 if response["status"] in self._colors:
                     return True, "Cluster status is '{}'".format(response["status"])
                 return False, "Cluster status is '{}'".format(response["status"])
