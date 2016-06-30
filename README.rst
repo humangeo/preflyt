@@ -42,25 +42,30 @@ Checkers
 
 Out of the box, the following checkers are available.
 
-+------+-------------------------+----------------------------------------------------------------------------------------------------+
-| Name | Description             | Args                                                                                               |
-+======+=========================+====================================================================================================+
-| env  | Check environment state | - **name**: Variable name                                                                          |
-|      |                         | - **value**: (optional) Variable value                                                             |
-+------+-------------------------+----------------------------------------------------------------------------------------------------+
-| dir  | Check directory state   | - **path**: Directory path                                                                         |
-|      |                         | - **present**: (optional, default=True) False if the directory should be absent.                   |
-+------+-------------------------+----------------------------------------------------------------------------------------------------+
-| file | Check file state        | - **path**: File path                                                                              |
-|      |                         | - **present**: (optional, default=True) False if the file should be absent.                        |
-+------+-------------------------+----------------------------------------------------------------------------------------------------+
-| psql | Check PostgreSQL state  | - **host**: (optional, default=localhost) Postgres hostname                                        |
-|      |                         | - **port**: (optional, default=5432) Postgres server port                                          |
-|      |                         | - **dbname**: (optional, default=None) The database name for which to test                         |
-+------+-------------------------+----------------------------------------------------------------------------------------------------+
-| web  | Check web service state | - **url**: The webservice URL                                                                      |
-|      |                         | - **statuses**: (optional, default=None) A collection of acceptable status codes (aside from 200). |
-+------+-------------------------+----------------------------------------------------------------------------------------------------+
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| Name   | Description               | Args                                                                                               |
++========+===========================+====================================================================================================+
+| env    | Check environment state   | - **name**: Variable name.                                                                         |
+|        |                           | - **value**: (optional) Variable value.                                                            |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| es     | Check Elasticsearch state | - **url**: The Elasticsearch endpoint URL.                                                         |
+|        |                           | - **colors**: (optional) A collection of acceptable cluster colors (aside from 'green').           |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| dir    | Check directory state     | - **path**: Directory path.                                                                        |
+|        |                           | - **present**: (optional, default=True) False if the directory should be absent.                   |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| file   | Check file state          | - **path**: File path.                                                                             |
+|        |                           | - **present**: (optional, default=True) False if the file should be absent.                        |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| psql   | Check PostgreSQL state    | - **host**: (optional, default=localhost) Postgres hostname.                                       |
+|        |                           | - **port**: (optional, default=5432) Postgres server port.                                         |
+|        |                           | - **dbname**: (optional, default=None) The database name for which to test.                        |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| sqlite | Check SQLite3 state       | - **path**: (optional, default=db.sqlite3) The path to the SQLite database.                        |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| web    | Check web service state   | - **url**: The webservice URL                                                                      |
+|        |                           | - **statuses**: (optional, default=None) A collection of acceptable status codes (aside from 200). |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
 
 Future versions of Preflyt will add additional default checkers while allowing third parties to ship their own.
 
