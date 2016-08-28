@@ -7,7 +7,7 @@ import sys
 from preflyt.utils import pformat_check
 
 __author__ = "Aru Sahni"
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 __licence__ = "MIT"
 
 CHECKERS = {}
