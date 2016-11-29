@@ -134,7 +134,7 @@ You know what sucks? Kicking off a long running data ingestion/processing task o
     import preflyt
     ok, results = preflyt.check(settings.CHECKS)
     if not ok:
-        print([result in results if not result["success"]])
+        print([result for result in results if not result["success"]])
         sys.exit(1)
 
   Now all the checks you're performing are defined in configuration, and no boilerplate!
