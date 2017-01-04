@@ -1,6 +1,6 @@
 """Check machines with ping."""
 
-from subprocess import call, DEVNULL
+import subprocess
 import platform
 
 from preflyt.base import BaseChecker
@@ -28,7 +28,7 @@ class PingChecker(BaseChecker):
 
 
     def check(self):
-        response = call(self._command, shell=True, stdout=DEVNULL, stderr=DEVNULL)
+        response = subprocess.call(self._command, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         if response == 0:
             return True, "{} is pingable".format(self._host)
         return False, "Cannot reach {}".format(self._host)

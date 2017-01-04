@@ -36,17 +36,18 @@ def test_ping_other_switch(system):
     eq_(ping._host, LOCALHOST)
     eq_(ping._switch, 'c')
 
-def test_ping_localhost():
+@patch("subprocess.call", return_value=0)
+def test_ping_localhost(call):
     ping = PingChecker(LOCALHOST)
     eq_(ping._host, LOCALHOST)
     result, message = ping.check()
     ok_(result)
     ok_('pingable' in message)
 
-def test_ping_invalid_host():
+@patch("subprocess.call", return_value=1)
+def test_ping_invalid_host(call):
     ping = PingChecker(INVALID_HOST)
     eq_(ping._host, INVALID_HOST)
     result, message = ping.check()
     ok_(not result)
     ok_("Cannot reach" in message)
-    
