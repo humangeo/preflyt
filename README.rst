@@ -66,6 +66,9 @@ Out of the box, the following checkers are available.
 | web    | Check web service state   | - **url**: The webservice URL                                                                      |
 |        |                           | - **statuses**: (optional, default=None) A collection of acceptable status codes (aside from 200). |
 +--------+---------------------------+----------------------------------------------------------------------------------------------------+
+| ping   | Ping external hosts       | - **host**: Hostname to ping.                                                                      |
+|        |                           |                                                                                                    |
++--------+---------------------------+----------------------------------------------------------------------------------------------------+
 
 Future versions of Preflyt will add additional default checkers while allowing third parties to ship their own.
 
