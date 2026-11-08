@@ -14,7 +14,7 @@ if sys.version_info < (3, 0):
 with codecs_open('README.rst', encoding='utf-8') as f:
     LONG_DESCRIPTION = f.read()
 
-with open("preflyt/__init__.py", "r") as f:
+with open("preflyt/__init__.py", "r", encoding="utf-8") as f:
     version = re.search(r"^__version__\s*=\s*[\"']([^\"']*)[\"']", f.read(), re.MULTILINE).group(1)
 
 setup(name='preflyt',
